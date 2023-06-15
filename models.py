@@ -27,7 +27,6 @@ class User(db.Model, UserMixin):
     token = db.Column(db.String, default = '', unique = True )
     g_auth_verify = db.Column(db.Boolean, default = False)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
-    # books = db.relationship('Book', backref = 'user', lazy = True)
     
     def __init__(self, first_name='', last_name='', username='', email='',   password='', token='', g_auth_verify=False):
         self.id = self.set_id()
