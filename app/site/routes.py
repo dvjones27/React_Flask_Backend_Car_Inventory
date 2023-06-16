@@ -20,9 +20,9 @@ def cars():
     cars = Car.query.all()
     return render_template('cars.html', cars=cars)
 
-@site.route('/create_car', methods=['POST'])
+@site.route('/create', methods=['POST'])
 @login_required
-def create_car():
+def create():
     vin = request.form['vin']
     year = request.form['year']
     make = request.form['make']
@@ -37,9 +37,9 @@ def create_car():
     return redirect(url_for('site.cars'))
 
 
-@site.route('/update_car/<string:vin>', methods=['POST', 'GET'])
+@site.route('/update/<string:vin>', methods=['POST', 'GET'])
 @login_required
-def update_car(vin):
+def update(vin):
     car = Car.query.get(vin)
     car = Car.query.filter_by(vin=vin).first()
     if request.method == 'POST':
@@ -67,9 +67,9 @@ def update_car(vin):
     # return redirect(url_for('site.cars'))
     
 
-@site.route('/delete_car/<id>', methods=['POST', 'GET', 'PUT'])
+@site.route('/delete/<id>', methods=['POST', 'GET', 'PUT'])
 @login_required
-def delete_car(id):
+def delete(id):
     car = Car.query.get(id)
     if request.method == 'POST':
         

@@ -75,13 +75,13 @@
                         
                     <td>
                         
-                        <form  action="{{ url_for('site.update_car', vin = car.vin ) }}" method="POST" style="align-items: center; justify-content: space-evenly; float: right; position: relative;
+                        <form  action="{{ url_for('site.update', vin = car.vin ) }}" method="POST" style="align-items: center; justify-content: space-evenly; float: right; position: relative;
                         left: -50%; margin: 2px" >
                             <input type="hidden" name="Update" value="Update">
                             <button type="submit" onclick="openForm()" class="btn btn-warning text-dark update-button" name="update"><i class="fa-regular fa-md fa-pen-nib"></i></button>
                         </form>
                         
-                        <form method="POST" action="{{ url_for('site.delete_car', id = car.vin) }}" style="align-items: center; justify-content: space-evenly; float: left; position: relative;
+                        <form method="POST" action="{{ url_for('site.delete', id = car.vin) }}" style="align-items: center; justify-content: space-evenly; float: left; position: relative;
                         right: -50%; margin: 2px"  >
                             <input type="hidden" name="Delete" value="Delete">
                             <button type="submit"  class="btn btn-danger text-dark delete-button" name="delete"><i class="fa-regular fa-md fa-trash"></i></button>
